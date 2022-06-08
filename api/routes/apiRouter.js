@@ -13,14 +13,6 @@ const knex = require('knex')({
 
 const endpoint = '/' 
 
-const lista_produtos = { 
-    produtos: [ 
-        { id: 1, descricao: "Produto 1", valor: 5.00, marca: "marca "  }, 
-        { id: 2, descricao: "Produto 2", valor: 5.00, marca: "marca "  }, 
-        { id: 3, descricao: "Produto 3", valor: 5.00, marca: "marca "  }, 
-    ] 
-} 
-
 // rotinas permitidas para qualquer usuário
 apiRouter.get(endpoint + 'produtos', auth.checkToken, (req, res, next) => {
     knex.select('*')

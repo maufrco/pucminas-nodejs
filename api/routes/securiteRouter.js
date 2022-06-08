@@ -1,5 +1,7 @@
 const express = require('express') 
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs') 
+
 let securiteRouter = express.Router() 
 
 const knex = require('knex')({ 
