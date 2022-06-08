@@ -21,10 +21,6 @@ const lista_produtos = {
     ] 
 } 
 
-apiRouter.get(endpoint + 'mock', auth.checkToken, function (req, res) { 
-    res.status(200).json(lista_produtos) 
-}) 
-
 // rotinas permitidas para qualquer usuário
 apiRouter.get(endpoint + 'produtos', auth.checkToken, (req, res, next) => {
     knex.select('*')

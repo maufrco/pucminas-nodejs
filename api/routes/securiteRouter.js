@@ -1,4 +1,5 @@
-const express = require ('express') 
+const express = require('express') 
+const jwt = require('jsonwebtoken')
 let securiteRouter = express.Router() 
 
 const knex = require('knex')({ 
