@@ -17,7 +17,6 @@ app.use('/app', express.static(path.join(__dirname, '/public')))
 app.use ('/seguranca', securiteRouter)
 app.use('/api', apiRouter) 
  
- 
 let port = process.env.PORT || 3000 
 app.listen(port) 
  
