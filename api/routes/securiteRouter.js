@@ -35,8 +35,7 @@ securiteRouter.post (endpoint + 'register', (req, res) => {
             return 
         }) 
         .catch(err => { 
-            res.status(500).json({  
-                message: 'Erro ao registrar usuario - ' + err.message }) 
+            res.status(500).json(err) 
         })   
   }) 
   
@@ -68,7 +67,7 @@ securiteRouter.post (endpoint + 'register', (req, res) => {
       }) 
       .catch (err => { 
           res.status(500).json({  
-             message: 'Erro ao verificar login - ' + err.message }) 
+             message:  err.message }) 
       }) 
   }) 
 
