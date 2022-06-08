@@ -10,7 +10,7 @@ const lista_produtos = {
     ] 
 } 
 
-apiRouter.get (endpoint + 'produtos', function (req, res) { 
+apiRouter.get(endpoint + 'produtos', function (req, res) { 
     res.status(200).json(lista_produtos) 
 }) 
  
