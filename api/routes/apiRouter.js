@@ -1,15 +1,8 @@
 const express = require ('express') 
 let apiRouter = express.Router() 
 const auth = require('../services/auth') 
-
-const knex = require('knex')({ 
-    client: 'pg', 
-    debug: true, 
-    connection: { 
-        connectionString : process.env.DATABASE_URL, 
-        ssl: { rejectUnauthorized: false }, 
-      } 
-  }); 
+const knexConfig = require('../services/knexConfig') 
+const knex = require('knex')(knexConfig); 
 
 const endpoint = '/' 
 
@@ -20,7 +13,7 @@ apiRouter.get(endpoint + 'produtos', auth.checkToken, (req, res, next) => {
         .then(produtos => res.status(200).json(produtos))
         .catch(err => res.status(500).json({ message: err.message }))
 })
-apiRouter.get(endpoint + 'produtos/:id',  (req, res) => { 
+apiRouter.get(endpoint + 'produtos/:id',  auth.checkToken, (req, res) => { 
     const { id } = req.params
     knex.select('*')
     .from ('produto')

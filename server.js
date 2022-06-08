@@ -8,6 +8,16 @@ const app = express()
 const apiRouter = require('./api/routes/apiRouter') 
 const securiteRouter = require('./api/routes/securiteRouter') 
 
+const knex = require('knex')({ 
+    client: 'pg', 
+    debug: true, 
+    connection: { 
+        connectionString : process.env.DATABASE_URL, 
+        ssl: { rejectUnauthorized: false }, 
+      } 
+}); 
+
+app.set("knex", knex);
 app.use(cors()) 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 

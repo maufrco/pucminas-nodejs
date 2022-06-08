@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken') 
-const bcrypt = require('bcryptjs') 
+const knexConfig = require('../services/knexConfig') 
+const knex = require('knex')(knexConfig); 
 
 let auth = {}
 

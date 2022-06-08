@@ -4,14 +4,8 @@ const bcrypt = require('bcryptjs')
 
 let securiteRouter = express.Router() 
 
-const knex = require('knex')({ 
-    client: 'pg', 
-    debug: true, 
-    connection: { 
-        connectionString : process.env.DATABASE_URL, 
-        ssl: { rejectUnauthorized: false }, 
-      } 
-  }); 
+const knexConfig = require('../services/knexConfig') 
+const knex = require('knex')(knexConfig); 
 
 const endpoint = '/' 
 
